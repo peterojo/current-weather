@@ -1,0 +1,15 @@
+.wa-info {
+	box-shadow: 1px 1px 8px #333;
+	border-radius: 15px;
+	height: 760px;
+	margin: auto;
+	padding: 20px;
+}
+.show-weather {
+	background-color: #efefef;
+	padding: 30px;
+}
+.temp-data {
+	font-size: 28px;
+	text-shadow: 2px #ff0000;
+}

@@ -1,0 +1,50 @@
+<section class="show-weather">
+	<div class="wa-info container">
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading"><h1>Current Weather</h1></div>
+			<div class="panel-body" ng-show="weatherLoaded">
+				<img src="http://openweathermap.org/img/w/{{weatherData.weather[0].icon}}.png" alt="" />
+				<span class="temp-data">{{weatherData.main.temp}} &deg; C</span>
+				<a href="#/where" class="btn btn-primary pull-right">Another City</a>
+				<h3>{{weatherData.name}}, {{weatherData.sys.country}}</h3>
+				<p>{{weatherData.weather[0].description}}</p>
+				<small>as at {{weatherData.dt}}</small>
+				<!-- Table -->
+				<table class="table table-hover table-striped table-bordered">
+					<tbody>
+						<tr>
+							<td>Wind</td>
+							<td>{{weatherData.wind.speed}} m/s ({{weatherData.wind.deg}})</td>
+						</tr>
+						<tr>
+							<td>Cloudiness</td>
+							<td>{{weatherData.weather[0].description}}</td>
+						</tr>
+						<tr>
+							<td>Pressure</td>
+							<td>{{weatherData.main.pressure}} hpa</td>
+						</tr>
+						<tr>
+							<td>Humidity</td>
+							<td>{{weatherData.main.humidity}}%</td>
+						</tr>
+						<tr>
+							<td>Max. Temp.</td>
+							<td>{{weatherData.main.temp_max}} &deg; C</td>
+						</tr>
+						<tr>
+							<td>Min. Temp.</td>
+							<td>{{weatherData.main.temp_min}} &deg; C</td>
+						</tr>
+						<tr>
+							<td>Coordinates</td>
+							<td>Latitude: {{weatherData.coord.lat}}<br> Longitude: {{weatherData.coord.lon}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</section>
