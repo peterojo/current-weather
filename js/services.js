@@ -3,7 +3,6 @@ angular.module('wa.services',[])
 .service('LocationService', ["$rootScope","$location","$uibModal", function($rootScope,$location,$uibModal) {
 	this.locationAllowed = false;
 	this.coords = {};
-	this.coordsDetected = false;
 	this.openPermissionModal = function() {
 		$uibModal.open({
 			animation: true,
@@ -30,7 +29,6 @@ angular.module('wa.services',[])
 			    navigator.geolocation.getCurrentPosition(function(position){
 					console.log(position.coords);
 					$rootScope.$apply(function(){
-						this.coordsDetected = true;
 						this.coords = position.coords;
 					});
 					$location.path("/weatherByCoords/"+this.coords.longitude+"/"+this.coords.latitude);

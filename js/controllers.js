@@ -1,6 +1,6 @@
 angular.module('wa.controllers', [])
 
-.controller('getModalCtrl', ["$uibModalInstance","LocationService","$rootScope","$scope","$uibModal","$location","$timeout", function($uibModalInstance,LocationService,$rootScope,$scope,$uibModal,$location,$timeout) {
+.controller('getModalCtrl', ["$uibModalInstance","LocationService","$scope","$location", function($uibModalInstance,LocationService,$scope,$location) {
 	$scope.city = "";
 	$scope.permLabel = "Yeah, sure!";
 	$scope.detect = function() {
@@ -25,13 +25,13 @@ angular.module('wa.controllers', [])
 	}
 }])
 
-.controller('getLocationCtrl', ["$scope","LocationService","$uibModal", function($scope,LocationService,$uibModal) {
+.controller('getLocationCtrl', ["$scope","LocationService", function($scope,LocationService,$uibModal) {
 	$scope.openLocationModal = LocationService.openLocationModal();
 }])
-.controller('getPermissionCtrl', ["$scope","LocationService","$uibModal", function($scope,LocationService,$uibModal) {
+.controller('getPermissionCtrl', ["$scope","LocationService", function($scope,LocationService,$uibModal) {
 	$scope.openPermissionModal = LocationService.openPermissionModal();
 }])
-.controller('getWeatherCtrl', ["$scope","$http","LocationService","WeatherService","$routeParams","$location", function($scope,$http,LocationService,WeatherService,$routeParams,$location) {
+.controller('getWeatherCtrl', ["$scope","$http","WeatherService","$routeParams","$location", function($scope,$http,WeatherService,$routeParams,$location) {
 	if($routeParams.city!=null) {
 		// by city
 		$scope.city = $routeParams.city;
