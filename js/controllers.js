@@ -31,7 +31,7 @@ angular.module('wa.controllers', [])
 .controller('getPermissionCtrl', ["$scope","LocationService","$uibModal", function($scope,LocationService,$uibModal) {
 	$scope.openPermissionModal = LocationService.openPermissionModal();
 }])
-.controller('getWeatherCtrl', ["$scope","$http","LocationService","WeatherService","$routeParams", function($scope,$http,LocationService,WeatherService,$routeParams) {
+.controller('getWeatherCtrl', ["$scope","$http","LocationService","WeatherService","$routeParams","$location", function($scope,$http,LocationService,WeatherService,$routeParams,$location) {
 	if($routeParams.city!=null) {
 		// by city
 		$scope.city = $routeParams.city;
@@ -40,6 +40,9 @@ angular.module('wa.controllers', [])
 			WeatherService.prepareWeatherData($scope.weatherData);
 			$scope.weatherLoaded = true;
 			console.log(data.data);
+		}, function(error) {
+			// query fails so try again
+			$location.path("/where");
 		});
 	} else if($routeParams.long!=null) {
 		// by coord
@@ -54,6 +57,9 @@ angular.module('wa.controllers', [])
 			WeatherService.prepareWeatherData($scope.weatherData);
 			$scope.weatherLoaded = true;
 			console.log(data.data);
+		}, function(error) {
+			// query fails so try again
+			$location.path("/where");
 		});
 	}
 }])
